@@ -1,0 +1,18 @@
+<launch>
+
+  <!-- Load Serial communication node -->
+  <node pkg="imu_tools_lsm9ds1" type="imu_serialdata_publisher_v2.py" name="imu_serialdata_publisher"/>
+
+  <param name="~use_mag" value="false"/>
+  <param name="~publish_debug_topics" value="true" /> <!-- ~ used to set private parameter -->
+
+  <!-- Load Madgwick fiter node -->
+  <node pkg="imu_filter_madgwick" type="imu_filter_node" name="madgwick_filter"/>
+
+  <!-- node pkg="imu_tools_lsm9ds1" type="imu_pose_dist_vel_publisherv2.py" name="imu_pose_dist_vel_publisher"/-->
+
+
+  <node type="rviz" name="rviz" pkg="rviz" />
+  <!-- args="-d $(find rviz)/rviz/IMU_tools.rviz" -->
+
+</launch>
