@@ -14,6 +14,8 @@ Steps for Installation
 1. The package depends on ``python-smbus`` or ``python3-smbus`` package. 
 
     sudo apt install python-smbus
+or
+    sudo apt install python3-smbus
 
 2. Clone this repository 
 
