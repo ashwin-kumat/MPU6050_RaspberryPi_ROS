@@ -1,66 +1,26 @@
-# MPU6050_RaspberryPi_ROS
-
-mpu6050
+MPU6050_RaspberryPi_ROS
 =======
 
-A Python module for accessing the MPU-6050 digital accelerometer and gyroscope on a Raspberry Pi.
+This repository contains a ROS-Python node which reads accelerometer and gyroscope MPU6050 code from Raspberry Pi and publishes it as /imu/data_raw rotopic. 
 
-Example
--------
-
-Assuming that the address of your MPU-6050 is 0x68, you can read read accelerometer data like this:
-
-::
-
-    >>> from mpu6050 import mpu6050
-
-    >>> sensor = mpu6050(0x68)
-
-    >>> accelerometer_data = sensor.get_accel_data()
-
-Dependencies
+Credits
 ------------
 
-Either the ``python-smbus`` or ``python3-smbus`` package, according to your
-Python version.
+This repository was created based on https://github.com/m-rtijn/mpu6050 
 
-Installation
+Steps for Installation
 ------------
 
-There are two ways of installing this package: via PyPi or via the git repository.
-Installing from the git repository insures that you have the absolute latest
-version installed, but this can be prone to bugs.
+1. The package depends on ``python-smbus`` or ``python3-smbus`` package. 
 
-1. install the python-smbus package
-::
+    sudo apt install python-smbus
 
-    sudo apt install python3-smbus
+2. Clone this repository 
 
-2a. Install this package from PyPi repository
-::
-
-    pip install mpu6050-raspberrypi
-
-Or:
-
-2b. Clone the repository and run setup.py
-::
+    git clone https://github.com/ashwin-kumat/MPU6050_RaspberryPi_ROS.git
     
-    git clone https://github.com/Tijndagamer/mpu6050.git
-    python setup.py install
+3. Rosrun raw_data_publisher.py after making it executable    
 
-Issues & Bugs
--------------
+    rosrun MPU6050_RaspberryPi_ROS raw_data_publisher.py
+    
 
-Please report any issues or bugs here:
-
-    https://github.com/Tijndagamer/mpu6050/issues
-
-
-License
--------
-
-::
-
-    Copyright (c) 2015, 2016, 2017, 2018 Martijn (MrTijn) and contributors
-    Licensed under the MIT License. For more information, see ``LICENSE``.
